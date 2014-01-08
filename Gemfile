@@ -45,3 +45,7 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem "haml-rails", "~> 0.5.3"
+
+group :test do
+  gem "minitest-spec-rails"
+end

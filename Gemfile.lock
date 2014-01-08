@@ -51,6 +51,9 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25.1)
     minitest (4.7.5)
+    minitest-spec-rails (4.7.6)
+      minitest (~> 4.7)
+      rails (>= 3.0, < 4.1)
     multi_json (1.8.2)
     pg (0.17.1)
     polyglot (0.3.3)
@@ -109,6 +112,7 @@ DEPENDENCIES
   haml-rails (~> 0.5.3)
   jbuilder (~> 1.2)
   jquery-rails
+  minitest-spec-rails
   pg
   rails (= 4.0.2)
   sass-rails (~> 4.0.0)
