@@ -32,4 +32,17 @@ describe Link do
     @link.valid?
     @link.errors[:points].must_include "must be greater than or equal to 0"
   end
+
+  it "should be able to retrieve comments" do
+    assert_respond_to @link, :comments
+  end
+
+  it "should destroy all comments on destruction" do
+    link    = Link.find(links(:one).id)
+    link_id = link.id
+
+    link.comments.count.must_equal 1
+    assert link.destroy, true
+    Comment.where(link_id: link_id).must_be_empty 
+  end
 end
