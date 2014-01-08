@@ -4,7 +4,7 @@
   .link_wrapper
     = link_to link.name, link.uri
 
-    .author Created by #{link.screen_name} #{time_ago_in_words(link.created_at)} ago
+    .author Created by #{link.username} #{time_ago_in_words(link.created_at)} ago
 
     .link_actions
       = link_to 'Show', link

@@ -6,7 +6,7 @@ describe Link do
     @link.valid?
   end
 
-  ["name", "uri", "screen_name"].each do |attr|
+  ["name", "uri", "username"].each do |attr|
     it "validates presence of #{attr}" do
       @link.errors[attr.to_sym].must_include "can't be blank"
     end

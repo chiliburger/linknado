@@ -17,10 +17,10 @@ ActiveRecord::Schema.define(version: 20140108083335) do
   enable_extension "plpgsql"
 
   create_table "links", force: true do |t|
-    t.string   "name",                    null: false
-    t.text     "uri",                     null: false
-    t.string   "screen_name",             null: false
-    t.integer  "points",      default: 0
+    t.string   "name",                   null: false
+    t.text     "uri",                    null: false
+    t.string   "username",               null: false
+    t.integer  "points",     default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

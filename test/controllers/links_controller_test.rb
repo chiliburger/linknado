@@ -4,9 +4,9 @@ describe LinksController do
   before(:each) do
     @link         = links(:one)
     @valid_params = {
-      name:        'OSNews',
-      uri:         'http://www.osnews.com',
-      screen_name: 'smith'
+      name:     'OSNews',
+      uri:      'http://www.osnews.com',
+      username: 'smith'
     }
   end
 
@@ -45,7 +45,7 @@ describe LinksController do
     @link.reload
     @link.name.must_equal @valid_params[:name]
     @link.uri.must_equal @valid_params[:uri]
-    @link.screen_name.must_equal @valid_params[:screen_name]
+    @link.username.must_equal @valid_params[:username]
 
     assert_redirected_to link_path(assigns(:link))
   end
