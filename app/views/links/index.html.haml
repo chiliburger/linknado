@@ -4,9 +4,9 @@
   .link_wrapper
     = link_to link.name, link.uri
 
-    .author Created by #{link.username} #{time_ago_in_words(link.created_at)} ago
+    .author Added by #{link.username} #{time_ago_in_words(link.created_at)} ago
 
-    .link_actions
+    .actions
       = link_to 'Show', link
       = link_to 'Edit', edit_link_path(link)
       = link_to 'Delete', link, method: :delete, data: { confirm: 'Are you sure?' }
