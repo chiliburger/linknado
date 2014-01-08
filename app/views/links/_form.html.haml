@@ -1,25 +1,27 @@
-= form_for(@link) do |f|
-  - if @link.errors.any?
-    #error_explanation
-      %h2 #{pluralize(@link.errors.count, "error")} prohibited this link from being saved:
+.well
+  = form_for @link, html: {role: 'form'} do |f|
+    - if @link.errors.any?
+      .alert.alert-danger
+        %p
+          %strong #{pluralize(@link.errors.count, "error")} prohibited this link from being saved:
 
-      %ul
-        - @link.errors.full_messages.each do |msg|
-          %li= msg
+        %ul
+          - @link.errors.full_messages.each do |msg|
+            %li= msg
 
-  .form_contents
-    .form_row
-      = f.label :name
-      = f.text_field :name
+    .form_contents
+      .form-group
+        = f.label :name
+        = f.text_field :name, class: "form-control"
 
-    .form_row
-      = f.label :uri
-      = f.text_field :uri
+      .form-group
+        = f.label :uri
+        = f.text_field :uri, class: "form-control"
 
-    .form_row
-      = f.label :username
-      = f.text_field :username
+      .form-group
+        = f.label :username
+        = f.text_field :username, class: "form-control"
 
-  .actions
-    = link_to 'Cancel', links_path
-    = f.submit
+      .form-group
+        = link_to 'Cancel', links_path, class: "btn btn-default"
+        = f.button nil, class: "btn btn-primary"

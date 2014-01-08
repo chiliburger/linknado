@@ -45,6 +45,7 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem "haml-rails", "~> 0.5.3"
+gem "bootstrap-sass", "~> 3.0.3.0"
 
 group :test do
   gem "minitest-spec-rails"

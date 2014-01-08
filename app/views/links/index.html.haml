@@ -1,14 +1,17 @@
-%h1 Linknado
-
 - @links.each do |link|
-  .link_wrapper
-    = link_to link.name, link.uri
+  .well
+    .vote-icons
+      = link_to raw('<span class="glyphicon glyphicon-thumbs-up glyphicon-lg"></span>'), link
+      = link_to raw('<span class="glyphicon glyphicon-thumbs-down glyphicon-lg"></span>'), link
+    = link_to link.name, link.uri, class: "link-title"
 
-    .author Added by #{link.username} #{time_ago_in_words(link.created_at)} ago
+    .help-block
+      Added by #{link.username} #{time_ago_in_words(link.created_at)} ago
+      %span :
+      Points (#{link.points})
+      %span :
+      = link_to "Permalink", link
+      %span :
+      =# link_to "Comments(#{link.comments.count})", link_path(anchor: "#comments")
 
-    .actions
-      = link_to 'Show', link
-      = link_to 'Edit', edit_link_path(link)
-      = link_to 'Delete', link, method: :delete, data: { confirm: 'Are you sure?' }
-
-= link_to 'Add Link', new_link_path
+    = link_to 'Delete', link, method: :delete, data: { confirm: 'Are you sure?' }

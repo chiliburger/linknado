@@ -2,8 +2,17 @@
 %html
   %head
     %title Linknado
+    %meta{name: "viewport", content: "width=device-with, initial-scale=1.0"}
     = stylesheet_link_tag    "application", media: "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
+
   %body
-    = yield
+    .jumbotron
+      .container
+        %h1= link_to "Linknado", root_path
+        %p Welcome to Linknado! Let's get started creating a whirlwind of links!
+        = link_to "Add Link", new_link_path, class: "btn btn-primary btn-lg"
+    .contents
+      = yield
+

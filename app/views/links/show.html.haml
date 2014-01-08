@@ -1,5 +1,5 @@
-%p{id: "notice"} #{notice}
+- if notice
+  .alert.alert-success #{notice}
 
 .actions
   = link_to 'Edit', edit_link_path(@link)
-  = link_to 'Back', links_path
