@@ -4,8 +4,12 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+one:
+  link    : one
+  username: Mickey
+  body    : Google is alright.
+
+two:
+  link    : two
+  username: Minney
+  body    : New Relic is the awesome! Looking forward to working there!
