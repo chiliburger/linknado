@@ -12,6 +12,4 @@
       %span :
       = link_to "Permalink", link
       %span :
-      =# link_to "Comments(#{link.comments.count})", link_path(anchor: "#comments")
-
-    = link_to 'Delete', link, method: :delete, data: { confirm: 'Are you sure?' }
+      = link_to "Comments(#{link.comments.count})", link_path(id: link.id, anchor: "comments")
