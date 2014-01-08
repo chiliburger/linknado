@@ -4,9 +4,9 @@ describe LinksController do
   before(:each) do
     @link         = links(:one)
     @valid_params = {
-      name:     'OSNews',
-      uri:      'http://www.osnews.com',
-      username: 'smith'
+      name:     "OSNews",
+      uri:      "http://www.osnews.com",
+      username: "smith"
     }
   end
 
