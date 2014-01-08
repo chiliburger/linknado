@@ -5,14 +5,12 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
-  id      : 1
   name    : Google
   uri     : http://www.google.com
   username: Mickey
   points  : 2
 
 two:
-  id      : 2
   name    : New Relic
   uri     : http://newrelic.com
   username: Minney
