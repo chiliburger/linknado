@@ -2,7 +2,12 @@ require 'test_helper'
 
 describe LinksController do
   before(:each) do
-    @link = links(:one)
+    @link         = links(:one)
+    @valid_params = {
+      name:        'OSNews',
+      uri:         'http://www.osnews.com',
+      screen_name: 'smith'
+    }
   end
 
   it "should get index" do
@@ -18,7 +23,7 @@ describe LinksController do
 
   it "should create link" do
     assert_difference('Link.count') do
-      post :create, link: {  }
+      post :create, link: @valid_params
     end
 
     assert_redirected_to link_path(assigns(:link))
@@ -35,7 +40,13 @@ describe LinksController do
   end
 
   it "should update link" do
-    patch :update, id: @link, link: {  }
+    patch :update, id: @link, link: @valid_params
+
+    @link.reload
+    @link.name.must_equal @valid_params[:name]
+    @link.uri.must_equal @valid_params[:uri]
+    @link.screen_name.must_equal @valid_params[:screen_name]
+
     assert_redirected_to link_path(assigns(:link))
   end
 
