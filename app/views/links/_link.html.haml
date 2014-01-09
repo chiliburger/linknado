@@ -1,0 +1,22 @@
+.well
+  .vote-icons
+    = link_to raw('<span class="glyphicon glyphicon-thumbs-up glyphicon-lg"></span>'), link
+    = link_to raw('<span class="glyphicon glyphicon-thumbs-down glyphicon-lg"></span>'), link
+  = link_to link.name, link.uri, class: "link-title"
+
+  .help-block
+    Added by #{link.username} #{time_ago_in_words(link.created_at)} ago
+    %span :
+    Points (#{link.points})
+    %span :
+    = link_to "Permalink", link
+    %span :
+    = link_to "Comments(#{link.comments.count})", link_path(id: link.id, anchor: "comments")
+
+  .actions
+    = link_to 'Edit', edit_link_path(link),
+      class: "btn btn-default"
+    = link_to 'Delete', link,
+      method: :delete,
+      data: { confirm: 'Are you sure?' },
+      class: "btn btn-danger"
