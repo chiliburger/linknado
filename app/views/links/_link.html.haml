@@ -1,7 +1,7 @@
 .well
   .vote-icons
-    = link_to raw('<span class="glyphicon glyphicon-thumbs-up glyphicon-lg"></span>'), link
-    = link_to raw('<span class="glyphicon glyphicon-thumbs-down glyphicon-lg"></span>'), link
+    = link_to raw('<span class="glyphicon glyphicon-thumbs-up glyphicon-lg"></span>'), add_point_link_path(link), method: :put
+    = link_to raw('<span class="glyphicon glyphicon-thumbs-down glyphicon-lg"></span>'), remove_point_link_path(link), method: :put
   = link_to link.name, link.uri, class: "link-title"
 
   .help-block

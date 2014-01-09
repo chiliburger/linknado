@@ -1,5 +1,5 @@
 class LinksController < ApplicationController
-  before_action :set_link, only: [:show, :edit, :update, :destroy]
+  before_action :set_link, only: [:show, :edit, :update, :destroy, :add_point, :remove_point]
 
   # GET /links
   def index
@@ -43,6 +43,26 @@ class LinksController < ApplicationController
   def destroy
     @link.destroy
     redirect_to links_url
+  end
+
+  def add_point
+    if @link.add_point
+      msg = {notice: "Successfully gave #{@link.name} the thumbs up."}
+    else
+      msg = {alert: "Could not give #{@link.name} the thumbs up."}
+    end
+
+    redirect_to root_url, msg
+  end
+
+  def remove_point
+    if @link.remove_point
+      msg = {notice: "Successfully gave #{@link.name} the thumbs down."}
+    else
+      msg = {alert: "Could not give #{@link.name} the thumbs down."}
+    end
+
+    redirect_to root_url, msg
   end
 
   private
