@@ -1,5 +1,5 @@
-%h1 New comment
+= render "links/link", link: @comment.link
+
+%h3 Create Comment
 
 = render 'form'
-
-= link_to 'Back', comments_path

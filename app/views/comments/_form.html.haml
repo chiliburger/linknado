@@ -1,10 +1,25 @@
-= form_for @comment do |f|
-  - if @comment.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@comment.errors.count, "error")} prohibited this comment from being saved:"
-      %ul
-        - @comment.errors.full_messages.each do |msg|
-          %li= msg
+.well
+  = form_for @comment, html: {role: 'form'} do |f|
+    - if @comment.errors.any?
+      .alert.alert-danger
+        %p
+          %strong #{pluralize(@comment.errors.count, "error")} prohibited this link from being saved:
 
-  .actions
-    = f.submit 'Save'
+        %ul
+          - @comment.errors.full_messages.each do |msg|
+            %li= msg
+
+    .form_contents
+      = f.hidden_field :link_id
+
+      .form-group
+        = f.label :username
+        = f.text_field :username, class: "form-control"
+
+      .form-group
+        = f.label :body
+        = f.text_area :body, class: "form-control"
+
+      .form-group
+        = link_to 'Cancel', link_path(@comment.link), class: "btn btn-default"
+        = f.button nil, class: "btn btn-primary"

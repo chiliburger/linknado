@@ -1,6 +1,23 @@
+%h3 Show Link
+
 - if notice
   .alert.alert-success #{notice}
 
-.actions
-  = link_to 'Delete', @link, method: :delete, data: { confirm: 'Are you sure?' }
-  = link_to 'Edit', edit_link_path(@link)
+= render "link", link: @link
+
+#comments.panel.panel-default
+  .panel-heading
+    %h3.panel-title
+      %strong Comments
+      = link_to "Add Comment", new_comment_path(link_id: @link.id),
+        class: "btn btn-primary"
+  .panel-body
+    - @link.comments.each do |comment|
+      .well
+        %p= comment.body
+
+        .help-block
+          Added by #{comment.username} #{time_ago_in_words(comment.created_at)} ago
+          %span :
+          = link_to "Permalink", comment 
+
