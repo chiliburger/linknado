@@ -45,4 +45,20 @@ describe Link do
     assert link.destroy, true
     Comment.where(link_id: link_id).must_be_empty 
   end
+
+  it "should remove point when remove_point is called" do
+    link = Link.find(links(:one).id)
+    link.update_attribute(:points, 100)
+    link.points.must_equal 100
+    link.remove_point
+    link.points.must_equal 99
+  end
+
+  it "should add a point when add_point is called" do
+    link = Link.find(links(:one).id)
+    link.update_attribute(:points, 100)
+    link.points.must_equal 100
+    link.add_point
+    link.points.must_equal 101
+  end
 end
